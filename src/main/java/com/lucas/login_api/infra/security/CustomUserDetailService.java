@@ -2,15 +2,13 @@ package com.lucas.login_api.infra.security;
 
 import com.lucas.login_api.domain.user.User;
 import com.lucas.login_api.repositories.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Service;
-
+import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 
-@Service
+@Component
 public class CustomUserDetailService implements UserDetailsService {
     private final UserRepository repository;
 
