@@ -1,0 +1,21 @@
+services:
+  app-dev:
+    image: maven:3-eclipse-temurin-24
+    container_name: login-api-dev
+
+    volumes:
+      - ./:/app
+      - maven_cache:/root/.m2
+
+    working_dir: /app
+
+    command: >
+      mvn spring-boot:run 
+      -Dspring-boot.run.jvmArguments="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5006"
+
+    ports:
+      - "8080:8080"
+      - "5006:5006"
+
+volumes:
+  maven_cache:
